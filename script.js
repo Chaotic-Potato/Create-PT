@@ -1,7 +1,14 @@
 var Universe =  {
-	 bodyArray: [],
-	 addBody: function(name, mass, x, y, velX, velY) {
+	bodyArray: [],
+	addBody: function(name, mass, x, y, velX, velY) {
 		Universe.bodyArray.push(new Universe.body(name, mass, x, y, velX, velY))
+	 },
+	 tick: function () {
+		 Render.clear()
+		 for (i in Universe.bodyArray) {
+			Render.renderObject("object", Universe.bodyArray[i].x, Universe.bodyArray[i].y, 50, 50)
+			//Universe.bodyArray[i].tick()
+		 }
 	 }
 }
 
@@ -13,6 +20,12 @@ Universe.body = function (name, mass, x, y, velX, velY) {
 	this.velX = velX
 	this.velY = velY
 }
+
+/*Universe.body.prototype = {
+	tick: function () {
+		
+	}
+}*/
 
 var Render = {
 	canvas: document.getElementById("canvas"),
