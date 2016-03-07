@@ -2,11 +2,14 @@ var Universe =  {
 	bodyArray: [],
 	tickRate: 100,
 	timeScale: 1,
+	time: 0,
 	addBody: function(name, mass, x, y, velX, velY) {
 		Universe.bodyArray.push(new Universe.body(name, mass, x, y, velX, velY))
 	 },
 	 tick: function () {
 		 Render.clear()
+		 Universe.time += Universe.timeScale / Universe.tickRate
+		 document.getElementById("time").innerHTML = "Time: " + Math.round(Universe.time * 1000000) / 1000000
 		 if (Universe.bodyArray.length > 250) {
 			Universe.bodyArray.splice(0, 1)
 		 }
