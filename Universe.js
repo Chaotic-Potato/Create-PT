@@ -9,7 +9,7 @@ var Universe =  {
 	 tick: function () {
 		 Render.clear()
 		 Universe.time += Universe.timeScale / Universe.tickRate
-		 document.getElementById("time").innerHTML = "Time: " + Math.round(Universe.time * 1000000) / 1000000
+		 document.getElementById("time").innerHTML = "Time: " + formatTime(Universe.time)
 		 if (Universe.bodyArray.length > 250) {
 			Universe.bodyArray.splice(0, 1)
 		 }
