@@ -9,6 +9,6 @@ var Render = {
 	},
 	renderObject: function (texture, x, y, size) {
 		var img = document.getElementById(texture)
-		Render.context.drawImage(img, (x - (size / 2)) / Render.scale + 640 + Render.centerX, (y - (size / 2)) / Render.scale + 360 + Render.centerY, size / Render.scale, size / Render.scale)
+		Render.context.drawImage(img, (x - (size / 2)) * Render.scale + 640 + Render.centerX, (y - (size / 2)) * Render.scale + 360 + Render.centerY, size * Render.scale, size * Render.scale)
 	}
 }

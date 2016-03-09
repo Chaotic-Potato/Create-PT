@@ -10,13 +10,14 @@
 		<canvas id = "canvas" width="1280px" height="720px" style="border: 1px solid white;"></canvas><br>
 		<span>Name: </span><input id="name"><br>
 		<span>Mass: </span><input type="number" id="mass"><br>
+		<span>Radius: </span><input type="number" id="radius"><br>
 		<span>X: </span><input type="number" id="x"><br>
 		<span>Y: </span><input type="number" id="y"><br>
 		<span>X Velocity: </span><input type="number" id="velX"><br>
 		<span>Y Velocity: </span><input type="number" id="velY"><br>
 		<button onclick="Universe.buttonAdd()">Add Body</button><br>
 		<span>Time Scale: </span><input type="number" id="timeScale" value="1" onchange="Universe.buttonSet()"><br>
-		<span>Zoom: </span><input type="number" id="renderScale" value="1" onchange="Universe.buttonSet()"><br>
+		<span>Zoom: </span><input type="number" id="renderScale" value="1" onchange="Universe.buttonSet()"><button onclick="Universe.buttonZoom(-1)">\/</button><button onclick="Universe.buttonZoom(1)">/\</button><br>
 		<span>Screen X: </span><input type="number" id="centerX" value="0" onchange="Universe.buttonSet()"><br>
 		<span>Screen Y: </span><input type="number" id="centerY" value="0" onchange="Universe.buttonSet()"><br>
 		<span id="time">Time: 0</span>
