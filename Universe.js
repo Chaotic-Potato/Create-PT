@@ -4,7 +4,13 @@ var Universe =  {
 	timeScale: 1,
 	time: 0,
 	addBody: function(name, mass, rad, x, y, velX, velY) {
+		if (rad == 0 && mass == 0) {
+			console.log("hoi")
+		} 
 		Universe.bodyArray.push(new Universe.body(name, mass, rad, x, y, velX, velY))
+	 },
+	 removeBody: function(id) {
+		Universe.bodyArray.splice(id, 1) 
 	 },
 	 tick: function () {
 		 Render.clear()
@@ -16,9 +22,14 @@ var Universe =  {
 		 for (i in Universe.bodyArray) {
 			Universe.bodyArray[i].preTick()
 		 }
+		 for (var i = Universe.bodyArray.length - 1; i > -1; i--) {
+			 if (Universe.bodyArray[i].mass == 0 && Universe.bodyArray[i].rad ==0) {
+				Universe.removeBody(i)
+			 }
+		 }
 		 for (i in Universe.bodyArray) {
-			Render.renderObject("object", Universe.bodyArray[i].x, Universe.bodyArray[i].y, Universe.bodyArray[i].rad, Universe.bodyArray[i].rad)
 			Universe.bodyArray[i].postTick()
+			Render.renderObject("object", Universe.bodyArray[i].x, Universe.bodyArray[i].y, Universe.bodyArray[i].rad * 2, Universe.bodyArray[i].rad * 2)
 		 }
 	 },
 	 buttonAdd: function() {
@@ -30,13 +41,17 @@ var Universe =  {
 		 Render.centerX = getFloatVal("centerX")
 		 Render.centerY = getFloatVal("centerY")
 	 },
-	 buttonZoom: function(dir) {
-		if (dir == 1) {
-			Render.scale *= 2
+	 buttonZoom: function(amount) {
+		Render.scale *= amount
+		document.getElementById("renderScale").value = Render.scale
+	 },
+	  buttonTime: function(amount) {
+		if (amount == 0 && Universe.timeScale == 0) {
+			Universe.timeScale = 1
 		}
 		else {
-			Render.scale /= 2
+			Universe.timeScale *= amount
 		}
-		document.getElementById("renderScale").value = Render.scale
+		document.getElementById("timeScale").value = Universe.timeScale
 	 }
 }
