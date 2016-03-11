@@ -8,13 +8,13 @@
 			<img src="object.png" id="object">
 		</div>
 		<canvas id = "canvas" width="1280px" height="720px" style="border: 1px solid white;"></canvas><br>
-		<span>Name: </span><input id="name"><br>
-		<span>Mass: </span><input type="number" id="mass"><br>
-		<span>Radius: </span><input type="number" id="radius"><br>
-		<span>X: </span><input type="number" id="x"><br>
-		<span>Y: </span><input type="number" id="y"><br>
-		<span>X Velocity: </span><input type="number" id="velX"><br>
-		<span>Y Velocity: </span><input type="number" id="velY"><br>
+		<span>Name: </span><input value="New" id="name"><br>
+		<span>Mass: </span><input value="1000" type="number" id="mass"><br>
+		<span>Radius: </span><input value="10" type="number" id="radius"><br>
+		<span>X: </span><input value="0" type="number" id="x"><br>
+		<span>Y: </span><input value="0" type="number" id="y"><br>
+		<span>X Velocity: </span><input value="0" type="number" id="velX"><br>
+		<span>Y Velocity: </span><input value="0" type="number" id="velY"><br>
 		<button onclick="Universe.buttonAdd()">Add Body</button><br>
 		<button id="zoomOut" onclick="Universe.buttonZoom(0.5)">\/</button><button id="zoomIn" onclick="Universe.buttonZoom(2)">/\</button>
 		<span>Screen X: </span><input type="number" id="centerX" value="0" onchange="Universe.buttonSet()"><br>
