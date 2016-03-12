@@ -14,6 +14,7 @@ var Universe =  {
 	 },
 	 tick: function () {
 		 Render.clear()
+		 Render.drawGrid()
 		 Universe.time += Universe.timeScale / Universe.tickRate
 		 document.getElementById("time").innerHTML = "Time: " + formatTime(Universe.time)
 		 if (Universe.bodyArray.length > 250) {
