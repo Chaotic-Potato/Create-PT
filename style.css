@@ -13,6 +13,10 @@ input {
 	padding: 3px;
 }
 
+#newBody > input {
+	width: 75px;
+}
+
 button {
 	background-color: black;
 	color: white;

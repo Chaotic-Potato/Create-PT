@@ -14,6 +14,7 @@ var Universe =  {
 	 },
 	 tick: function () {
 		 Render.clear()
+		 Render.drawGrid()
 		 Universe.time += Universe.timeScale / Universe.tickRate
 		 document.getElementById("time").innerHTML = "Time: " + formatTime(Universe.time)
 		 if (Universe.bodyArray.length > 250) {
@@ -59,8 +60,8 @@ var Universe =  {
 		document.getElementById("newBody").style.left= evt.offsetX + 8
 		document.getElementById("newBody").style.top = evt.offsetY + 8
 		document.getElementById("newBody").style.visibility = "visible"
-		document.getElementById("x").value = (evt.offsetX - 640) / Render.scale - Render.centerX
-		document.getElementById("y").value = (evt.offsetY - 360) / Render.scale - Render.centerY
+		document.getElementById("x").value = (evt.offsetX - 640) / Render.scale - Render.centerX * Render.scale
+		document.getElementById("y").value = (evt.offsetY - 360) / Render.scale - Render.centerY * Render.scale
 	 },
 	 closeNewBodyDiv: function() {
 		 document.getElementById("newBody").style.visibility = "hidden"
