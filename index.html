@@ -7,18 +7,21 @@
 		<div id="img"hidden>
 			<img src="object.png" id="object">
 		</div>
-		<canvas id = "canvas" width="1280px" height="720px" style="border: 1px solid white;"></canvas><br>
-		<span>Name: </span><input value="New" id="name"><br>
-		<span>Mass: </span><input value="1000" type="number" id="mass"><br>
-		<span>Radius: </span><input value="10" type="number" id="radius"><br>
-		<span>X: </span><input value="0" type="number" id="x"><br>
-		<span>Y: </span><input value="0" type="number" id="y"><br>
-		<span>X Velocity: </span><input value="0" type="number" id="velX"><br>
-		<span>Y Velocity: </span><input value="0" type="number" id="velY"><br>
-		<button onclick="Universe.buttonAdd()">Add Body</button><br>
+		<canvas onclick="Universe.click(event)" id = "canvas" width="1280px" height="720px" style="border: 1px solid white;"></canvas><br>
+		<div id="newBody">
+			<span>Name: </span><input value="New" id="name"><br>
+			<span>Mass: </span><input value="1000" type="number" id="mass"><br>
+			<span>Radius: </span><input value="10" type="number" id="radius"><br>
+			<span>X: </span><input value="0" type="number" id="x"><br>
+			<span>Y: </span><input value="0" type="number" id="y"><br>
+			<span>X Velocity: </span><input value="0" type="number" id="velX"><br>
+			<span>Y Velocity: </span><input value="0" type="number" id="velY"><br>
+			<button onclick="Universe.buttonAdd()">Add Body</button>
+			<button onclick="Universe.closeNewBodyDiv()" id="closeNewBodyDiv">X</button>
+		</div>
 		<button id="zoomOut" onclick="Universe.buttonZoom(0.5)">\/</button><button id="zoomIn" onclick="Universe.buttonZoom(2)">/\</button>
-		<span>Screen X: </span><input type="number" id="centerX" value="0" onchange="Universe.buttonSet()"><br>
-		<span>Screen Y: </span><input type="number" id="centerY" value="0" onchange="Universe.buttonSet()"><br>
+		<input type="number" id="centerX" value="0" onchange="Universe.buttonSet()"><br>
+		<input type="number" id="centerY" value="0" onchange="Universe.buttonSet()"><br>
 		<button id="pause"onclick="Universe.buttonTime(0)">||</button><button id="reverse" onclick="Universe.buttonTime(-1)"><</button><button id="slow" onclick="Universe.buttonTime(0.5)">|></button><button id="fast" onclick="Universe.buttonTime(2)">>></button><br>
 		<input type="number" id="renderScale" value="1" onchange="Universe.buttonSet()">
 		<input type="number" id="timeScale" value="1" onchange="Universe.buttonSet()">

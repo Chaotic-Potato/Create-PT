@@ -34,6 +34,7 @@ var Universe =  {
 	 },
 	 buttonAdd: function() {
 		 Universe.addBody(document.getElementById("name").value, getFloatVal("mass"), getFloatVal("radius"), getFloatVal("x"), getFloatVal("y"), getFloatVal("velX"), getFloatVal("velY"))
+		 document.getElementById("newBody").style.visibility = "hidden"
 	 },
 	 buttonSet: function() {
 		 Universe.timeScale = getFloatVal("timeScale")
@@ -53,5 +54,15 @@ var Universe =  {
 			Universe.timeScale *= amount
 		}
 		document.getElementById("timeScale").value = Universe.timeScale
+	 },
+	 click: function (evt) {
+		document.getElementById("newBody").style.left= evt.offsetX + 8
+		document.getElementById("newBody").style.top = evt.offsetY + 8
+		document.getElementById("newBody").style.visibility = "visible"
+		document.getElementById("x").value = (evt.offsetX - 640) / Render.scale - Render.centerX
+		document.getElementById("y").value = (evt.offsetY - 360) / Render.scale - Render.centerY
+	 },
+	 closeNewBodyDiv: function() {
+		 document.getElementById("newBody").style.visibility = "hidden"
 	 }
 }
