@@ -4,9 +4,6 @@ var Universe =  {
 	timeScale: 1,
 	time: 0,
 	addBody: function(name, mass, rad, x, y, velX, velY) {
-		if (rad == 0 && mass == 0) {
-			console.log("hoi")
-		} 
 		Universe.bodyArray.push(new Universe.body(name, mass, rad, x, y, velX, velY))
 	 },
 	 removeBody: function(id) {
@@ -34,7 +31,7 @@ var Universe =  {
 		 }
 	 },
 	 buttonAdd: function() {
-		 Universe.addBody(document.getElementById("name").value, getFloatVal("mass"), getFloatVal("radius"), getFloatVal("x"), getFloatVal("y"), getFloatVal("velX"), getFloatVal("velY"))
+		 Universe.addBody(document.getElementById("name").value, getFloatVal("massCo") * Math.pow(10, getFloatVal("massEx")), getFloatVal("radius"), getFloatVal("x"), getFloatVal("y"), getFloatVal("velX"), getFloatVal("velY"))
 		 document.getElementById("newBody").style.visibility = "hidden"
 	 },
 	 buttonSet: function() {
