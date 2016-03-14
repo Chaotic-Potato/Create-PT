@@ -10,7 +10,7 @@
 		<canvas onclick="Universe.click(event)" id = "canvas" width="1280px" height="720px" style="border: 1px solid white;"></canvas><br>
 		<div id="newBody">
 			<span>Name: </span><input value="New" id="name"><br>
-			<span>Name: </span>
+			<span>Texture: </span><button onclick="showTextureDiv()">Select</button><br>
 			<span>Mass: </span><input value="1" type="number" id="massCo" min="1" max = "10"><span>x 10^</span><input value="3" type="number" id="massEx"><br>
 			<span>Radius: </span><input value="10" type="number" id="radius"><br>
 			<span>X: </span><input value="0" type="number" id="x"><br>
@@ -18,7 +18,7 @@
 			<span>X Velocity: </span><input value="0" type="number" id="velX"><br>
 			<span>Y Velocity: </span><input value="0" type="number" id="velY"><br>
 			<button onclick="Universe.buttonAdd()">Add Body</button>
-			<button onclick="Universe.closeNewBodyDiv()" id="closeNewBodyDiv">X</button>
+			<button onclick="closeNewBodyDiv()" id="closeNewBodyDiv">X</button>
 		</div>
 		<button id="zoomOut" onclick="Universe.buttonZoom(0.5)">\/</button><button id="zoomIn" onclick="Universe.buttonZoom(2)">/\</button>
 		<input type="number" id="centerX" value="0" onchange="Universe.buttonSet()"><br>

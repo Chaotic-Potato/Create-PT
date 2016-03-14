@@ -3,8 +3,8 @@ var Universe =  {
 	tickRate: 100,
 	timeScale: 1,
 	time: 0,
-	addBody: function(name, mass, rad, x, y, velX, velY) {
-		Universe.bodyArray.push(new Universe.body(name, mass, rad, x, y, velX, velY))
+	addBody: function(name, texture, mass, rad, x, y, velX, velY) {
+		Universe.bodyArray.push(new Universe.body(name, texture, mass, rad, x, y, velX, velY))
 	 },
 	 removeBody: function(id) {
 		Universe.bodyArray.splice(id, 1) 
@@ -27,11 +27,11 @@ var Universe =  {
 		 }
 		 for (i in Universe.bodyArray) {
 			Universe.bodyArray[i].postTick()
-			Render.renderObject("object", Universe.bodyArray[i].x, Universe.bodyArray[i].y, Universe.bodyArray[i].rad * 2, Universe.bodyArray[i].rad * 2)
+			Render.renderObject(Universe.bodyArray[i].texture, Universe.bodyArray[i].x, Universe.bodyArray[i].y, Universe.bodyArray[i].rad * 2, Universe.bodyArray[i].rad * 2)
 		 }
 	 },
 	 buttonAdd: function() {
-		 Universe.addBody(document.getElementById("name").value, getFloatVal("massCo") * Math.pow(10, getFloatVal("massEx")), getFloatVal("radius"), getFloatVal("x"), getFloatVal("y"), getFloatVal("velX"), getFloatVal("velY"))
+		 Universe.addBody(document.getElementById("name").value, document.getElementById("texture").value, getFloatVal("massCo") * Math.pow(10, getFloatVal("massEx")), getFloatVal("radius"), getFloatVal("x"), getFloatVal("y"), getFloatVal("velX"), getFloatVal("velY"))
 		 document.getElementById("newBody").style.visibility = "hidden"
 	 },
 	 buttonSet: function() {
