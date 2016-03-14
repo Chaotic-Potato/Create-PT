@@ -116,3 +116,16 @@ input {
     right: 5px;
 	top: 5px;
 }
+
+#textureSelect {
+	visibility:hidden;
+	position:absolute;
+	border: 1px white solid;
+	border-radius: 3px;
+}
+
+#textureSelect > img {
+	width:50px;
+	height: 50px;
+	padding:5px;
+}

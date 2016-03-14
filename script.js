@@ -21,8 +21,12 @@ function newVelPos (a, b, m, n) {
 
 function closeNewBodyDiv() {
 	document.getElementById("newBody").style.visibility = "hidden"
+	document.getElementById("textureSelect").style.visibility = "hidden"
 }
 
 function showTextureDiv() {
-	document.getElementById("textureSelect").style.visibility = "shown"
+	document.getElementById("textureSelect").style.left = document.getElementById("newBody").style.left
+	document.getElementById("textureSelect").style.top = document.getElementById("newBody").style.top
+	closeNewBodyDiv()
+	document.getElementById("textureSelect").style.visibility = "visible"
 }

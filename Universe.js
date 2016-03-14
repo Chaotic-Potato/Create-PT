@@ -3,6 +3,7 @@ var Universe =  {
 	tickRate: 100,
 	timeScale: 1,
 	time: 0,
+	selectedTexture:"object",
 	addBody: function(name, texture, mass, rad, x, y, velX, velY) {
 		Universe.bodyArray.push(new Universe.body(name, texture, mass, rad, x, y, velX, velY))
 	 },
@@ -31,7 +32,7 @@ var Universe =  {
 		 }
 	 },
 	 buttonAdd: function() {
-		 Universe.addBody(document.getElementById("name").value, "object", getFloatVal("massCo") * Math.pow(10, getFloatVal("massEx")), getFloatVal("radius"), getFloatVal("x"), getFloatVal("y"), getFloatVal("velX"), getFloatVal("velY"))
+		 Universe.addBody(document.getElementById("name").value, Universe.selectedTexture, getFloatVal("massCo") * Math.pow(10, getFloatVal("massEx")), getFloatVal("radius"), getFloatVal("x"), getFloatVal("y"), getFloatVal("velX"), getFloatVal("velY"))
 		 document.getElementById("newBody").style.visibility = "hidden"
 	 },
 	 buttonSet: function() {
@@ -59,8 +60,14 @@ var Universe =  {
 		document.getElementById("newBody").style.visibility = "visible"
 		document.getElementById("x").value = (evt.offsetX - 640) / Render.scale - Render.centerX * Render.scale
 		document.getElementById("y").value = (evt.offsetY - 360) / Render.scale - Render.centerY * Render.scale
+		document.getElementById("textureSelect").style.visibility = "hidden"
 	 },
 	 closeNewBodyDiv: function() {
 		 document.getElementById("newBody").style.visibility = "hidden"
+	 },
+	 changeTexture: function(id) {
+		Universe.selectedTexture = id
+		document.getElementById("textureSelect").style.visibility = "hidden"
+		document.getElementById("newBody").style.visibility = "visible"
 	 }
 }

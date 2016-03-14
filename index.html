@@ -5,7 +5,6 @@
 	<body>
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<div id="img"hidden>
-			<img src="Images/object.png" id="object">
 		</div>
 		<canvas onclick="Universe.click(event)" id = "canvas" width="1280px" height="720px" style="border: 1px solid white;"></canvas><br>
 		<div id="newBody">
@@ -19,6 +18,13 @@
 			<span>Y Velocity: </span><input value="0" type="number" id="velY"><br>
 			<button onclick="Universe.buttonAdd()">Add Body</button>
 			<button onclick="closeNewBodyDiv()" id="closeNewBodyDiv">X</button>
+		</div>
+		<div id="textureSelect">
+			<span>Select:</span><br>
+			<img src="Images/object.png" id="object" onclick="Universe.changeTexture(this.id)">
+			<img src="Images/sun.png" id="sun" onclick="Universe.changeTexture(this.id)">
+			<img src="Images/earth.png" id="earth" onclick="Universe.changeTexture(this.id)">
+			<img src="Images/moon.png" id="moon" onclick="Universe.changeTexture(this.id)">
 		</div>
 		<button id="zoomOut" onclick="Universe.buttonZoom(0.5)">\/</button><button id="zoomIn" onclick="Universe.buttonZoom(2)">/\</button>
 		<input type="number" id="centerX" value="0" onchange="Universe.buttonSet()"><br>
