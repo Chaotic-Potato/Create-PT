@@ -11,7 +11,7 @@ var Universe =  {
 		Universe.bodyArray.splice(id, 1) 
 	 },
 	 getBody: function(i) {
-		 return Universe.getBody(i)
+		return Universe.bodyArray[i]
 	 },
 	 tick: function () {
 		 Render.clear()

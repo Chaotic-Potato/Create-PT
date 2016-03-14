@@ -14,11 +14,12 @@ Universe.body.prototype = {
 		for (i in  Universe.bodyArray){
 			if (Universe.getBody(i) != this && (this.rad != 0 || this.mass !=0) && (Universe.getBody(i).rad != 0 || Universe.getBody(i).mass !=0)) {
 				if (Math.sqrt(Math.pow((Universe.getBody(i).x - this.x), 2) + Math.pow((Universe.getBody(i).y - this.y), 2)) > Universe.getBody(i).rad) {
+					var direction = Math.atan((Universe.getBody(i).y - this.y) / (Universe.getBody(i).x - this.x))
 					if (Universe.getBody(i).x > this.x) {
-						var direction = Math.atan((Universe.getBody(i).y - this.y) / (Universe.getBody(i).x - this.x))  % (Math.PI * 2)
+						direction = direction  % (Math.PI * 2)
 					}
 					else {
-						var direction = Math.atan((Universe.getBody(i).y - this.y) / (Universe.getBody(i).x - this.x)) + Math.PI
+						direction = direction + Math.PI
 					}
 					var velD = Universe.getBody(i).mass / (Math.pow((Universe.getBody(i).x - this.x), 2) + Math.pow((Universe.getBody(i).y - this.y), 2))
 					this.velX += Math.cos(direction) *  velD / Universe.tickRate * Universe.timeScale
