@@ -25,7 +25,7 @@ Universe.body.prototype = {
 					this.velY += Math.sin(direction) *  velD  / Universe.tickRate * Universe.timeScale
 				}
 				else {
-					Universe.addBody("New Object", this.mass + Universe.bodyArray[i].mass, Math.pow((Math.pow(this.rad, 3) + Math.pow(Universe.bodyArray[i].rad, 3)), (1/3)), newVelPos(this.x, Universe.bodyArray[i].x, this.mass, Universe.bodyArray[i].mass), newVelPos(this.y, Universe.bodyArray[i].y, this.mass, Universe.bodyArray[i].mass), newVelPos(this.velX, Universe.bodyArray[i].velX, this.mass, Universe.bodyArray[i].mass), newVelPos(this.velY, Universe.bodyArray[i].velY, this.mass, Universe.bodyArray[i].mass))
+					Universe.addBody("New Object",  "object",this.mass + Universe.bodyArray[i].mass, Math.pow((Math.pow(this.rad, 3) + Math.pow(Universe.bodyArray[i].rad, 3)), (1/3)), newVelPos(this.x, Universe.bodyArray[i].x, this.mass, Universe.bodyArray[i].mass), newVelPos(this.y, Universe.bodyArray[i].y, this.mass, Universe.bodyArray[i].mass), newVelPos(this.velX, Universe.bodyArray[i].velX, this.mass, Universe.bodyArray[i].mass), newVelPos(this.velY, Universe.bodyArray[i].velY, this.mass, Universe.bodyArray[i].mass))
 					this.mass = 0
 					this.rad = 0
 					Universe.bodyArray[i]. mass = 0
