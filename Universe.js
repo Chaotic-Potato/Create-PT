@@ -31,7 +31,7 @@ var Universe =  {
 		 }
 	 },
 	 buttonAdd: function() {
-		 Universe.addBody(document.getElementById("name").value, document.getElementById("texture").value, getFloatVal("massCo") * Math.pow(10, getFloatVal("massEx")), getFloatVal("radius"), getFloatVal("x"), getFloatVal("y"), getFloatVal("velX"), getFloatVal("velY"))
+		 Universe.addBody(document.getElementById("name").value, "object", getFloatVal("massCo") * Math.pow(10, getFloatVal("massEx")), getFloatVal("radius"), getFloatVal("x"), getFloatVal("y"), getFloatVal("velX"), getFloatVal("velY"))
 		 document.getElementById("newBody").style.visibility = "hidden"
 	 },
 	 buttonSet: function() {
