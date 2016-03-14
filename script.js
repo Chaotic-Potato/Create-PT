@@ -18,3 +18,11 @@ function formatTime(time) {
 function newVelPos (a, b, m, n) {
 	return ((a * m) + (b *n)) / (m + n)
 }
+
+function closeNewBodyDiv() {
+	document.getElementById("newBody").style.visibility = "hidden"
+}
+
+function showTextureDiv() {
+	document.getElementById("textureSelect").style.visibility = "shown"
+}

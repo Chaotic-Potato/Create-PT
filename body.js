@@ -1,5 +1,6 @@
-Universe.body = function (name, mass, rad, x, y, velX, velY) {
+Universe.body = function (name, texture, mass, rad, x, y, velX, velY) {
 	this.name = name
+	this.texture = texture
 	this.mass = mass
 	this.rad = rad
 	this.x = x
