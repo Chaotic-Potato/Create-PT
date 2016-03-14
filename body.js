@@ -12,24 +12,31 @@ Universe.body = function (name, texture, mass, rad, x, y, velX, velY) {
 Universe.body.prototype = {
 	preTick: function () {
 		for (i in  Universe.bodyArray){
-			if (Universe.bodyArray[i] != this && (this.rad != 0 || this.mass !=0) && (Universe.bodyArray[i].rad != 0 || Universe.bodyArray[i].mass !=0)) {
-				if (Math.sqrt(Math.pow((Universe.bodyArray[i].x - this.x), 2) + Math.pow((Universe.bodyArray[i].y - this.y), 2)) > Universe.bodyArray[i].rad) {
-					if (Universe.bodyArray[i].x > this.x) {
-						var direction = Math.atan((Universe.bodyArray[i].y - this.y) / (Universe.bodyArray[i].x - this.x))  % (Math.PI * 2)
+			if (Universe.getBody(i) != this && (this.rad != 0 || this.mass !=0) && (Universe.getBody(i).rad != 0 || Universe.getBody(i).mass !=0)) {
+				if (Math.sqrt(Math.pow((Universe.getBody(i).x - this.x), 2) + Math.pow((Universe.getBody(i).y - this.y), 2)) > Universe.getBody(i).rad) {
+					var direction = Math.atan((Universe.getBody(i).y - this.y) / (Universe.getBody(i).x - this.x))
+					if (Universe.getBody(i).x > this.x) {
+						direction = direction  % (Math.PI * 2)
 					}
 					else {
-						var direction = Math.atan((Universe.bodyArray[i].y - this.y) / (Universe.bodyArray[i].x - this.x)) + Math.PI
+						direction = direction + Math.PI
 					}
-					var velD = Universe.bodyArray[i].mass / (Math.pow((Universe.bodyArray[i].x - this.x), 2) + Math.pow((Universe.bodyArray[i].y - this.y), 2))
+					var velD = Universe.getBody(i).mass / (Math.pow((Universe.getBody(i).x - this.x), 2) + Math.pow((Universe.getBody(i).y - this.y), 2))
 					this.velX += Math.cos(direction) *  velD / Universe.tickRate * Universe.timeScale
 					this.velY += Math.sin(direction) *  velD  / Universe.tickRate * Universe.timeScale
 				}
 				else {
-					Universe.addBody("New Object",  "object",this.mass + Universe.bodyArray[i].mass, Math.pow((Math.pow(this.rad, 3) + Math.pow(Universe.bodyArray[i].rad, 3)), (1/3)), newVelPos(this.x, Universe.bodyArray[i].x, this.mass, Universe.bodyArray[i].mass), newVelPos(this.y, Universe.bodyArray[i].y, this.mass, Universe.bodyArray[i].mass), newVelPos(this.velX, Universe.bodyArray[i].velX, this.mass, Universe.bodyArray[i].mass), newVelPos(this.velY, Universe.bodyArray[i].velY, this.mass, Universe.bodyArray[i].mass))
+					var mass = this.mass + Universe.getBody(i).mass
+					var rad = Math.pow((Math.pow(this.rad, 3) + Math.pow(Universe.getBody(i).rad, 3)), (1/3))
+					var x =newVelPos(this.x, Universe.getBody(i).x, this.mass, Universe.getBody(i).mass)
+					var y = newVelPos(this.y, Universe.getBody(i).y, this.mass, Universe.getBody(i).mass)
+					var velX = newVelPos(this.velX, Universe.getBody(i).velX, this.mass, Universe.getBody(i).mass)
+					var velY = newVelPos(this.velY, Universe.getBody(i).velY, this.mass, Universe.getBody(i).mass)
+					Universe.addBody("New Object",  "object",mass , rad, x, y, velX, velY)
 					this.mass = 0
 					this.rad = 0
-					Universe.bodyArray[i]. mass = 0
-					Universe.bodyArray[i].rad = 0
+					Universe.getBody(i). mass = 0
+					Universe.getBody(i).rad = 0
 				}
 			}
 		}

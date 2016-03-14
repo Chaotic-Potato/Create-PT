@@ -10,6 +10,9 @@ var Universe =  {
 	 removeBody: function(id) {
 		Universe.bodyArray.splice(id, 1) 
 	 },
+	 getBody: function(i) {
+		return Universe.bodyArray[i]
+	 },
 	 tick: function () {
 		 Render.clear()
 		 Render.drawGrid()
@@ -19,16 +22,16 @@ var Universe =  {
 			Universe.bodyArray.splice(0, 1)
 		 }
 		 for (i in Universe.bodyArray) {
-			Universe.bodyArray[i].preTick()
+			Universe.getBody(i).preTick()
 		 }
 		 for (var i = Universe.bodyArray.length - 1; i > -1; i--) {
-			 if (Universe.bodyArray[i].mass == 0 && Universe.bodyArray[i].rad ==0) {
+			 if (Universe.getBody(i).mass == 0 && Universe.getBody(i).rad ==0) {
 				Universe.removeBody(i)
 			 }
 		 }
 		 for (i in Universe.bodyArray) {
-			Universe.bodyArray[i].postTick()
-			Render.renderObject(Universe.bodyArray[i].texture, Universe.bodyArray[i].x, Universe.bodyArray[i].y, Universe.bodyArray[i].rad * 2, Universe.bodyArray[i].rad * 2)
+			Universe.getBody(i).postTick()
+			Render.renderObject(Universe.getBody(i).texture, Universe.getBody(i).x, Universe.getBody(i).y, Universe.getBody(i).rad * 2, Universe.getBody(i).rad * 2)
 		 }
 	 },
 	 buttonAdd: function() {
