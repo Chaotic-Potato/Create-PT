@@ -8,7 +8,7 @@ var Render = {
 		Render.context.clearRect(0, 0, Render.canvas.width, Render.canvas.height)
 	},
 	renderObject: function (texture, x, y, size) {
-		var img = document.getElementById(texture)
+		var img = get(texture)
 		Render.context.drawImage(img, (x - (size / 2)) * Render.scale + 640 + Render.centerX * Render.scale, (y - (size / 2)) * Render.scale + 360 + Render.centerY * Render.scale, size * Render.scale, size * Render.scale)
 	},
 	drawLine: function (a, b, x, y, color) {

@@ -17,7 +17,7 @@ var Universe =  {
 		 Render.clear()
 		 Render.drawGrid()
 		 Universe.time += Universe.timeScale / Universe.tickRate
-		 document.getElementById("time").innerHTML = "Time: " + formatTime(Universe.time)
+		 get("time").innerHTML = "Time: " + formatTime(Universe.time)
 		 if (Universe.bodyArray.length > 250) {
 			Universe.bodyArray.splice(0, 1)
 		 }
@@ -35,8 +35,8 @@ var Universe =  {
 		 }
 	 },
 	 buttonAdd: function() {
-		 Universe.addBody(document.getElementById("name").value, Universe.selectedTexture, getFloatVal("massCo") * Math.pow(10, getFloatVal("massEx")), getFloatVal("radius"), getFloatVal("x"), getFloatVal("y"), getFloatVal("velX"), getFloatVal("velY"))
-		 document.getElementById("newBody").style.visibility = "hidden"
+		 Universe.addBody(get("name").value, Universe.selectedTexture, getFloatVal("massCo") * Math.pow(10, getFloatVal("massEx")), getFloatVal("radius"), getFloatVal("x"), getFloatVal("y"), getFloatVal("velX"), getFloatVal("velY"))
+		 get("newBody").style.visibility = "hidden"
 	 },
 	 buttonSet: function() {
 		 Universe.timeScale = getFloatVal("timeScale")
@@ -46,7 +46,7 @@ var Universe =  {
 	 },
 	 buttonZoom: function(amount) {
 		Render.scale *= amount
-		document.getElementById("renderScale").value = Render.scale
+		get("renderScale").value = Render.scale
 	 },
 	  buttonTime: function(amount) {
 		if (amount == 0 && Universe.timeScale == 0) {
@@ -55,22 +55,19 @@ var Universe =  {
 		else {
 			Universe.timeScale *= amount
 		}
-		document.getElementById("timeScale").value = Universe.timeScale
+		get("timeScale").value = Universe.timeScale
 	 },
 	 click: function (evt) {
-		document.getElementById("newBody").style.left= evt.offsetX + 8
-		document.getElementById("newBody").style.top = evt.offsetY + 8
-		document.getElementById("newBody").style.visibility = "visible"
-		document.getElementById("x").value = (evt.offsetX - 640) / Render.scale - Render.centerX * Render.scale
-		document.getElementById("y").value = (evt.offsetY - 360) / Render.scale - Render.centerY * Render.scale
-		document.getElementById("textureSelect").style.visibility = "hidden"
-	 },
-	 closeNewBodyDiv: function() {
-		 document.getElementById("newBody").style.visibility = "hidden"
+		get("newBody").style.left= evt.offsetX + 8
+		get("newBody").style.top = evt.offsetY + 8
+		get("newBody").style.visibility = "visible"
+		get("x").value = (evt.offsetX - 640) / Render.scale - Render.centerX * Render.scale
+		get("y").value = (evt.offsetY - 360) / Render.scale - Render.centerY * Render.scale
+		get("textureSelect").style.visibility = "hidden"
 	 },
 	 changeTexture: function(id) {
 		Universe.selectedTexture = id
-		document.getElementById("textureSelect").style.visibility = "hidden"
-		document.getElementById("newBody").style.visibility = "visible"
+		get("textureSelect").style.visibility = "hidden"
+		get("newBody").style.visibility = "visible"
 	 }
 }
