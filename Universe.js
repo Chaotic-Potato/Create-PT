@@ -32,7 +32,7 @@ var Universe =  {
 		 for (i in Universe.bodyArray) {
 			Universe.getBody(i).postTick()
 			Render.renderObject(Universe.getBody(i).texture, Universe.getBody(i).x, Universe.getBody(i).y, Universe.getBody(i).rad * 2, Universe.getBody(i).rad * 2)
-		 }
+		}
 	 },
 	 buttonAdd: function() {
 		 Universe.addBody(get("name").value, Universe.selectedTexture, getFloatVal("massCo") * Math.pow(10, getFloatVal("massEx")), getFloatVal("radius"), getFloatVal("x"), getFloatVal("y"), getFloatVal("velX"), getFloatVal("velY"))
@@ -69,5 +69,8 @@ var Universe =  {
 		Universe.selectedTexture = id
 		get("textureSelect").style.visibility = "hidden"
 		get("newBody").style.visibility = "visible"
+	 },
+	 toggleLines: function () {
+		 Render.showLines = (Universe.showLines ? false : true)
 	 }
 }

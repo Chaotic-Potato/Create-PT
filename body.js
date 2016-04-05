@@ -21,13 +21,14 @@ Universe.body.prototype = {
 					this.velY += Math.sin(direction) *  velD  / Universe.tickRate * Universe.timeScale
 				}
 				else {
+					var texture = (this.mass > Universe.getBody(i).mass ? this.texture : Universe.getBody(i).texture)
 					var mass = this.mass + Universe.getBody(i).mass
 					var rad = Math.pow((Math.pow(this.rad, 3) + Math.pow(Universe.getBody(i).rad, 3)), (1/3))
 					var x =newVelPos(this.x, Universe.getBody(i).x, this.mass, Universe.getBody(i).mass)
 					var y = newVelPos(this.y, Universe.getBody(i).y, this.mass, Universe.getBody(i).mass)
 					var velX = newVelPos(this.velX, Universe.getBody(i).velX, this.mass, Universe.getBody(i).mass)
 					var velY = newVelPos(this.velY, Universe.getBody(i).velY, this.mass, Universe.getBody(i).mass)
-					Universe.addBody("New Object",  "object" ,mass , rad, x, y, velX, velY)
+					Universe.addBody("New Object",  texture ,mass , rad, x, y, velX, velY)
 					this.mass = 0
 					this.rad = 0
 					Universe.getBody(i). mass = 0

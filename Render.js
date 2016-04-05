@@ -4,6 +4,7 @@ var Render = {
 	scale: 1,
 	centerX: 0,
 	centerY: 0,
+	showLines: false,
 	clear: function () {
 		Render.context.clearRect(0, 0, Render.canvas.width, Render.canvas.height)
 	},

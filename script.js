@@ -29,6 +29,7 @@ function showTextureDiv() {
 	get("textureSelect").style.visibility = "visible"
 }
 
+toggleSettings = function() {get("settings").style.visibility = (get("settings").style.visibility == "hidden" ? "visible" : "hidden")}
 newVelPos = function(a, b, m, n) {return ((a * m) + (b *n)) / (m + n)}
 getFloatVal = function(id) {return parseFloat(get(id).value)}
 get = function(id) {return document.getElementById(id)}
