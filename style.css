@@ -34,59 +34,7 @@ input {
 }
 
 #renderScale {
-	position: absolute;
-	top: 16px;
-	left: 1182px;
 	width: 50px;
-}
-
-#zoomOut {
-	position: absolute;
-	top: 16px;
-	left: 1232px;
-}
-
-#zoomIn {
-	position: absolute;
-	top: 16px;
-	left: 1258px;
-}
-
-#time {
-	position: absolute;
-	top: 708px;
-	left: 16px;
-}
-
-#pause {
-	position: absolute;
-	top: 683px;
-	left: 16px;
-}
-
-#reverse {
-	position: absolute;
-	top: 683px;
-	left: 48px;
-}
-
-#slow {
-	position: absolute;
-	top: 683px;
-	left: 72px;
-}
-
-#fast {
-	position: absolute;
-	top: 683px;
-	left: 104px;
-}
-
-#timeScale {
-	position: absolute;
-	top: 683px;
-	left: 136px;
-	width: 80px;
 }
 
 #newBody {
@@ -128,12 +76,6 @@ input {
 	width:50px;
 	height: 50px;
 	padding:5px;
-}
-
-#settingsBtn {
-	position: absolute;
-    left: 1215px;
-	top: 700px;
 }
 
 #settings {
