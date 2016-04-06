@@ -1,5 +1,3 @@
-Universe.tickLoop = setInterval(Universe.tick, (1000 / Universe.tickRate))
-
 function formatTime(time) {
 	sign = (time == Math.abs(time))
 	time = Math.abs(time)
