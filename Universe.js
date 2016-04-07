@@ -32,6 +32,9 @@ var Universe =  {
 		 for (i in Universe.bodyArray) {
 			Universe.getBody(i).postTick()
 			Render.renderObject(Universe.getBody(i).texture, Universe.getBody(i).x, Universe.getBody(i).y, Universe.getBody(i).rad * 2, Universe.getBody(i).rad * 2)
+			if (Render.showTrails) {
+				Render.renderPath(Universe.getBody(i).x, Universe.getBody(i).y, Universe.getBody(i).velX, Universe.getBody(i).velY)
+			}
 		}
 	 },
 	 buttonAdd: function() {
@@ -71,7 +74,7 @@ var Universe =  {
 		get("newBody").style.visibility = "visible"
 	 },
 	 toggleLines: function () {
-		 Render.showLines = (Universe.showLines ? false : true)
+		 Render.showTrails = (Universe.showTrails ? false : true)
 	 }
 }
 
