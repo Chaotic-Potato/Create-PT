@@ -4,7 +4,7 @@ var Render = {
 	scale: 1,
 	centerX: 0,
 	centerY: 0,
-	showLines: false,
+	showTrails: false,
 	clear: function () {
 		Render.context.clearRect(0, 0, Render.canvas.width, Render.canvas.height)
 	},
@@ -49,6 +49,9 @@ var Render = {
 		get(id).style.position = "absolute"
 		get(id).style.left = l
 		get(id).style.top = t
+	},
+	renderPath: function(x, y, velX, velY) {
+		Render.drawLine(x * Render.scale + window.innerWidth / 2 + Render.centerX * Render.scale, y * Render.scale + window.innerHeight / 2 + Render.centerY * Render.scale, ((velX * Universe.timeScale) + x) * Render.scale + window.innerWidth / 2, ((velY * Universe.timeScale) + y) * Render.scale + window.innerHeight / 2 + Render.centerY * Render.scale, "white")
 	}
 }
 
