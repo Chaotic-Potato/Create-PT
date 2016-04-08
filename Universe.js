@@ -64,8 +64,8 @@ var Universe =  {
 		get("newBody").style.left= evt.offsetX + 8
 		get("newBody").style.top = evt.offsetY + 8
 		get("newBody").style.visibility = "visible"
-		get("x").value = (evt.offsetX - Math.round(window.innerWidth / 2)) / Render.scale - Render.centerX * Render.scale
-		get("y").value = (evt.offsetY - Math.round(window.innerHeight / 2)) / Render.scale - Render.centerY * Render.scale
+		get("x").value = (evt.offsetX - Math.round(window.innerWidth / 2)) / Render.scale - Render.centerX
+		get("y").value = (evt.offsetY - Math.round(window.innerHeight / 2)) / Render.scale - Render.centerY
 		get("textureSelect").style.visibility = "hidden"
 	 },
 	 changeTexture: function(id) {

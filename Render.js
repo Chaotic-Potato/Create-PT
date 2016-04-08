@@ -10,7 +10,7 @@ var Render = {
 	},
 	renderObject: function (texture, x, y, size) {
 		var img = get(texture)
-		Render.context.drawImage(img, (x - (size / 2)) * Render.scale + window.innerWidth / 2 + Render.centerX * Render.scale, (y - (size / 2)) * Render.scale + window.innerHeight / 2 + Render.centerY * Render.scale, size * Render.scale, size * Render.scale)
+		Render.context.drawImage(img, Render.getDrawX(x - (size / 2)), Render.getDrawY(y - (size / 2)), size * Render.scale, size * Render.scale)
 	},
 	drawLine: function (a, b, x, y, color) {
 		Render.context.strokeStyle=color
@@ -50,8 +50,14 @@ var Render = {
 		get(id).style.left = l
 		get(id).style.top = t
 	},
+	getDrawX: function(x) {
+		return (x * Render.scale + window.innerWidth / 2) + Render.centerX * Render.scale
+	},
+	getDrawY: function(y) {
+		return (y * Render.scale + window.innerHeight / 2) + Render.centerY * Render.scale
+	},
 	renderPath: function(x, y, velX, velY) {
-		Render.drawLine(x * Render.scale + window.innerWidth / 2 + Render.centerX * Render.scale, y * Render.scale + window.innerHeight / 2 + Render.centerY * Render.scale, ((velX * Universe.timeScale) + x) * Render.scale + window.innerWidth / 2, ((velY * Universe.timeScale) + y) * Render.scale + window.innerHeight / 2 + Render.centerY * Render.scale, "white")
+		Render.drawLine(Render.getDrawX(x), Render.getDrawY(y), Render.getDrawX((velX * Universe.timeScale) + x), Render.getDrawY((velY * Universe.timeScale) + y), "white")
 	}
 }
 
