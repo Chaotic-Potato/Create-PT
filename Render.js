@@ -58,8 +58,22 @@ var Render = {
 	},
 	renderPath: function(x, y, velX, velY) {
 		Render.drawLine(Render.getDrawX(x), Render.getDrawY(y), Render.getDrawX((velX * Universe.timeScale) + x), Render.getDrawY((velY * Universe.timeScale) + y), "white")
+	},
+	move: function(event) {
+		var key = String.fromCharCode(event.keyCode)
+		func = {"w": [Render.vert, 1], "s": [Render.vert, -1], "a" : [Render.hor, 1], "d" : [Render.hor, -1], "f" : [Universe.buttonZoom, 0.5],  "r" : [Universe.buttonZoom, 2], "z" : [Universe.buttonTime, 0.5],  "x" : [Universe.buttonTime, 2]}
+		func[key][0](func[key][1])
+	},
+	hor: function(dir) {
+		Render.centerX += dir * 50 / Render.scale
+		get("centerX").value = Render.centerX
+	},
+	vert: function(dir) {
+		Render.centerY += dir * 50 / Render.scale
+		get("centerY").value = Render.centerY
 	}
 }
 
+document.onkeypress = Render.move
 window.onresize = Render.resize
 Render.resize()

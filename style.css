@@ -49,14 +49,14 @@ input {
 	position: absolute;
 	top: 16px;
 	left: 16px;
-	width:40px;
+	width:100px;
 }
 
 #centerY {
 	position: absolute;
 	top: 40px;
 	left: 16px;
-	width:40px;
+	width:100px;
 }
 
 #closeNewBodyDiv {

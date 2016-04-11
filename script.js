@@ -31,3 +31,5 @@ toggleSettings = function() {get("settings").style.visibility = (get("settings")
 newVelPos = function(a, b, m, n) {return ((a * m) + (b *n)) / (m + n)}
 getFloatVal = function(id) {return parseFloat(get(id).value)}
 get = function(id) {return document.getElementById(id)}
+
+var func = ""
