@@ -61,8 +61,8 @@ var Universe =  {
 		get("timeScale").value = Universe.timeScale
 	 },
 	 click: function (evt) {
-		get("newBody").style.left= evt.offsetX + 8
-		get("newBody").style.top = evt.offsetY + 8
+		get("newBody").style.left = evt.offsetX + (evt.offsetX > window.innerWidth / 2 ? -202 : 0)
+		get("newBody").style.top = evt.offsetY + (evt.offsetY > window.innerHeight / 2 ? -238 : 0)
 		get("newBody").style.visibility = "visible"
 		get("x").value = (evt.offsetX - Math.round(window.innerWidth / 2)) / Render.scale - Render.centerX
 		get("y").value = (evt.offsetY - Math.round(window.innerHeight / 2)) / Render.scale - Render.centerY
@@ -72,9 +72,6 @@ var Universe =  {
 		Universe.selectedTexture = id
 		get("textureSelect").style.visibility = "hidden"
 		get("newBody").style.visibility = "visible"
-	 },
-	 toggleLines: function () {
-		 Render.showTrails = (Universe.showTrails ? false : true)
 	 }
 }
 

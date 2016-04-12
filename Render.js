@@ -31,10 +31,11 @@ var Render = {
 		Render.drawLine(window.innerWidth / 2 + Render.centerX * Render.scale, 0, window.innerWidth / 2 + Render.centerX * Render.scale, window.innerHeight, "white")
 	},
 	resize: function() {
-		Render.repos("renderScale", window.innerWidth - 103, 16)
+		Render.repos("renderScale", window.innerWidth - 133, 16)
 		Render.repos("canvas", 0, 0)
 		Render.repos("zoomIn", window.innerWidth - 53, 16)
 		Render.repos("zoomOut", window.innerWidth - 27, 16)
+		Render.repos("settings", window.innerWidth - 280, window.innerHeight - 220)
 		Render.repos("settingsBtn", window.innerWidth - 75, window.innerHeight - 30)
 		Render.repos("time", 16, window.innerHeight - 28)
 		Render.repos("pause", 16, window.innerHeight - 50)
@@ -45,6 +46,7 @@ var Render = {
 		get("canvas").width = window.innerWidth
 		get("canvas").height = window.innerHeight
 	},
+
 	repos: function(id, l, t) {
 		get(id).style.position = "absolute"
 		get(id).style.left = l
@@ -61,8 +63,17 @@ var Render = {
 	},
 	move: function(event) {
 		var key = String.fromCharCode(event.keyCode)
-		func = {"w": [Render.vert, 1], "s": [Render.vert, -1], "a" : [Render.hor, 1], "d" : [Render.hor, -1], "f" : [Universe.buttonZoom, 0.5],  "r" : [Universe.buttonZoom, 2], "z" : [Universe.buttonTime, 0.5],  "x" : [Universe.buttonTime, 2]}
-		func[key][0](func[key][1])
+		func = {
+			"w": [Render.vert, 1],
+			"s": [Render.vert, -1], "a" : [Render.hor, 1],
+			"d" : [Render.hor, -1], "f" : [Universe.buttonZoom, 0.5],
+			"r" : [Universe.buttonZoom, 2],
+			"z" : [Universe.buttonTime, 0.5],
+			"x" : [Universe.buttonTime, 2]
+		}
+		if (func[key] != undefined) {
+			func[key][0](func[key][1])
+		}
 	},
 	hor: function(dir) {
 		Render.centerX += dir * 50 / Render.scale
@@ -71,6 +82,11 @@ var Render = {
 	vert: function(dir) {
 		Render.centerY += dir * 50 / Render.scale
 		get("centerY").value = Render.centerY
+	},
+	toggleTrails: function () {
+		 Render.showTrails = !Render.showTrails
+		 get("vlBtn").textContent = (Render.showTrails ? "On" : "Off")
+		 console.log(Render.showTrails)
 	}
 }
 
