@@ -29,7 +29,9 @@
 		<div id="settings" style="visibility: hidden;">
 			<button id="closeSettings" onclick="get('settings').style.visibility = 'hidden'">X</button>
 			<span>Velocity Lines: </span>
-			<button id="vlBtn" onclick="Render.toggleTrails()">Off</button>
+			<button id="vlBtn" onclick="Render.togglePath()">Off</button><br>
+			<span>Object Trails: </span>
+			<button id="otBtn" onclick="Render.toggleTrail()">Off</button>
 		</div>
 		<button id="zoomOut" onclick="Universe.buttonZoom(0.5)">\/</button><button id="zoomIn" onclick="Universe.buttonZoom(2)">/\</button>
 		<input type="number" id="centerX" value="0" onchange="Universe.buttonSet()"><br>
