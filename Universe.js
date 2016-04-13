@@ -5,44 +5,27 @@ var Universe =  {
 	time: 0,
 	selectedTexture:"object",
 	addBody: function(name, texture, mass, rad, x, y, velX, velY) {
-		Universe.bodyArray.push(new Universe.body(name, texture, mass, rad, x, y, velX, velY))
+		u.bodyArray.push(new u.body(name, texture, mass, rad, x, y, velX, velY))
 	 },
 	 removeBody: function(id) {
-		Universe.bodyArray.splice(id, 1) 
+		u.bodyArray.splice(id, 1) 
 	 },
 	 getBody: function(i) {
-		return Universe.bodyArray[i]
+		return u.bodyArray[i]
 	 },
 	 tick: function () {
 		 Render.clear()
 		 Render.drawGrid()
-		 Universe.time += Universe.timeScale / Universe.tickRate
-		 get("time").innerHTML = "Time: " + formatTime(Universe.time)
-		 if (Universe.bodyArray.length > 250) {
-			Universe.bodyArray.splice(0, 1)
-		 }
-		 for (i in Universe.bodyArray) {
-			Universe.getBody(i).preTick()
-		 }
-		 for (var i = Universe.bodyArray.length - 1; i > -1; i--) {
-			 if (Universe.getBody(i).mass == 0 && Universe.getBody(i).rad ==0) {
-				Universe.removeBody(i)
-			 }
-		 }
-		 for (i in Universe.bodyArray) {
-			Universe.getBody(i).postTick()
-			Render.renderObject(Universe.getBody(i).texture, Universe.getBody(i).x, Universe.getBody(i).y, Universe.getBody(i).rad * 2, Universe.getBody(i).rad * 2)
-			if (Render.showTrails) {
-				Render.renderPath(Universe.getBody(i).x, Universe.getBody(i).y, Universe.getBody(i).velX, Universe.getBody(i).velY)
-			}
-		}
+		 u.time += u.timeScale / u.tickRate
+		 get("time").innerHTML = "Time: " + formatTime(u.time)
+		 Render.renderTick()
 	 },
 	 buttonAdd: function() {
-		 Universe.addBody(get("name").value, Universe.selectedTexture, getFloatVal("massCo") * Math.pow(10, getFloatVal("massEx")), getFloatVal("radius"), getFloatVal("x"), getFloatVal("y"), getFloatVal("velX"), getFloatVal("velY"))
+		 u.addBody(get("name").value, u.selectedTexture, getFloatVal("massCo") * Math.pow(10, getFloatVal("massEx")), getFloatVal("radius"), getFloatVal("x"), getFloatVal("y"), getFloatVal("velX"), getFloatVal("velY"))
 		 get("newBody").style.visibility = "hidden"
 	 },
 	 buttonSet: function() {
-		 Universe.timeScale = getFloatVal("timeScale")
+		 u.timeScale = getFloatVal("timeScale")
 		 Render.scale = getFloatVal("renderScale")
 		 Render.centerX = getFloatVal("centerX")
 		 Render.centerY = getFloatVal("centerY")
@@ -52,30 +35,27 @@ var Universe =  {
 		get("renderScale").value = Render.scale
 	 },
 	  buttonTime: function(amount) {
-		if (amount == 0 && Universe.timeScale == 0) {
-			Universe.timeScale = 1
+		if (amount == 0 && u.timeScale == 0) {
+			u.timeScale = 1
 		}
 		else {
-			Universe.timeScale *= amount
+			u.timeScale *= amount
 		}
-		get("timeScale").value = Universe.timeScale
+		get("timeScale").value = u.timeScale
 	 },
 	 click: function (evt) {
-		get("newBody").style.left= evt.offsetX + 8
-		get("newBody").style.top = evt.offsetY + 8
+		get("newBody").style.left = evt.offsetX + (evt.offsetX > window.innerWidth / 2 ? -202 : 0)
+		get("newBody").style.top = evt.offsetY + (evt.offsetY > window.innerHeight / 2 ? -238 : 0)
 		get("newBody").style.visibility = "visible"
 		get("x").value = (evt.offsetX - Math.round(window.innerWidth / 2)) / Render.scale - Render.centerX
 		get("y").value = (evt.offsetY - Math.round(window.innerHeight / 2)) / Render.scale - Render.centerY
 		get("textureSelect").style.visibility = "hidden"
 	 },
 	 changeTexture: function(id) {
-		Universe.selectedTexture = id
+		u.selectedTexture = id
 		get("textureSelect").style.visibility = "hidden"
 		get("newBody").style.visibility = "visible"
-	 },
-	 toggleLines: function () {
-		 Render.showTrails = (Universe.showTrails ? false : true)
 	 }
 }
-
-Universe.tickLoop = setInterval(Universe.tick, (1000 / Universe.tickRate))
+var u = Universe
+u.tickLoop = setInterval(u.tick, (1000 / u.tickRate))

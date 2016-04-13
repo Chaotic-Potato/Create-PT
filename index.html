@@ -27,8 +27,11 @@
 			<img src="Images/moon.png" id="moon" onclick="Universe.changeTexture(this.id)">
 		</div>
 		<div id="settings" style="visibility: hidden;">
-			<button onclick="get('settings').style.visibility = 'hidden'">X</button>
-			<button onclick="Universe.toggleLines()">Toggle Velocity Lines</button>
+			<button id="closeSettings" onclick="get('settings').style.visibility = 'hidden'">X</button>
+			<span>Velocity Lines: </span>
+			<button id="vlBtn" onclick="Render.togglePath()">Off</button><br>
+			<span>Object Trails: </span>
+			<button id="otBtn" onclick="Render.toggleTrail()">Off</button>
 		</div>
 		<button id="zoomOut" onclick="Universe.buttonZoom(0.5)">\/</button><button id="zoomIn" onclick="Universe.buttonZoom(2)">/\</button>
 		<input type="number" id="centerX" value="0" onchange="Universe.buttonSet()"><br>
