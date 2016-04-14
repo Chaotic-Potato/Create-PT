@@ -117,6 +117,9 @@ var Render = {
 				}
 			}
 		}
+	},
+	changeTrailLength: function() {
+		r.trailLength = get("tdInp").value / 10
 	}
 }
 var r = Render

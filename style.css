@@ -96,3 +96,16 @@ input {
     right: 5px;
 	top: 5px;
 }
+
+#tdInp {
+	width: 75px;
+	height: 15px;
+	-webkit-appearance: none;
+}
+
+#tdInp::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	background-color: white;
+	height: 15px;
+	width: 5px;
+}

@@ -31,7 +31,9 @@
 			<span>Velocity Lines: </span>
 			<button id="vlBtn" onclick="Render.togglePath()">Off</button><br>
 			<span>Object Trails: </span>
-			<button id="otBtn" onclick="Render.toggleTrail()">Off</button>
+			<button id="otBtn" onclick="Render.toggleTrail()">Off</button><br>
+			<span>Trail Length:</span>
+			<input id="tdInp" type="range" min="1" max="50" value="10" onchange="Render.changeTrailLength()">
 		</div>
 		<button id="zoomOut" onclick="Universe.buttonZoom(0.5)">\/</button><button id="zoomIn" onclick="Universe.buttonZoom(2)">/\</button>
 		<input type="number" id="centerX" value="0" onchange="Universe.buttonSet()"><br>
