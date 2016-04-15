@@ -6,7 +6,7 @@ var Render = {
 	centerY: 0,
 	showPath: false,
 	showTrail: false,
-	trailLength: 1, //Add HTML Selector!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	trailLength: 1,
 	clear: function () {
 		r.context.clearRect(0, 0, r.canvas.width, r.canvas.height)
 	},
