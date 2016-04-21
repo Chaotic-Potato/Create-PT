@@ -42,7 +42,7 @@ u.body.prototype = {
 		this.x += this.velX / u.tickRate * u.timeScale
 		this.y += this.velY / u.tickRate * u.timeScale
 		this.prevPoints.push([this.x, this.y])
-		if (this.prevPoints.length > r.trailLength * 100 + 1) {
+		while (this.prevPoints.length > r.trailLength * 100 + 1) {
 			this.prevPoints.splice(0, 1)
 		}
 	}

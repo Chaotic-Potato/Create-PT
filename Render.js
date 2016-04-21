@@ -6,7 +6,11 @@ var Render = {
 	centerY: 0,
 	showPath: false,
 	showTrail: false,
+<<<<<<< HEAD
+	trailLength: 1,
+=======
 	trailLength: 1, 
+>>>>>>> master
 	clear: function () {
 		r.context.clearRect(0, 0, r.canvas.width, r.canvas.height)
 	},
@@ -117,6 +121,9 @@ var Render = {
 				}
 			}
 		}
+	},
+	changeTrailLength: function() {
+		r.trailLength = get("tdInp").value / 10
 	}
 }
 var r = Render
