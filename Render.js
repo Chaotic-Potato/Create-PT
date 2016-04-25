@@ -7,6 +7,7 @@ var Render = {
 	showPath: false,
 	showTrail: false,
 	trailLength: 1,
+	trailLength: 1, 
 	clear: function () {
 		r.context.clearRect(0, 0, r.canvas.width, r.canvas.height)
 	},
